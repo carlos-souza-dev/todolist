@@ -32,7 +32,8 @@ export const SectionDone = styled(SectionS)`
 `;
 
 export const Container = styled.main`
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     background: #DADADA;
     display: flex;
     flex-direction: column;

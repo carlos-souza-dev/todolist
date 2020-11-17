@@ -4,16 +4,15 @@ import React from 'react';
 import ColorTheme from '../Theme';
 
 // Style 
-import { BarS } from './style';
-import { WrapperBar } from '../Wrapper/style';
+import { BarS, ContainerBar } from './style';
 
 const Bar = () => {
     return (
-            <WrapperBar>
+            <ContainerBar>
                 <ColorTheme/>
                 <BarS/>
                 <span>25%</span>
-            </WrapperBar>
+            </ContainerBar>
     ); 
 
 }

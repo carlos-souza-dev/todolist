@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+export const InputContainer = styled.article`
+    width: 60%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+`;
+
 export const InputS = styled.input`
         width: 624px;
         height: 56px;

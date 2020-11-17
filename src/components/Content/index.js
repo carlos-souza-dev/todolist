@@ -1,20 +1,15 @@
 import React from 'react';
 
-// Components
-import Check from '../Buttons/Check';
-import Trash from '../Buttons/Trash';
-import Wrapper from '../Wrapper';
-
 // Style
-import { ContentS } from './style';
+import { Container, ContentS, CheckS, TrashS } from './style';
 
-const Content = () => {
+const Content = ({ text }) => {
     return (
-        <Wrapper>
-            <Check/>
-            <ContentS>Criar Componente Adicionar</ContentS>
-            <Trash/>
-        </Wrapper>
+        <Container>
+            <CheckS><i className="fa fa-check"></i></CheckS>
+            <ContentS>{text}</ContentS>
+            <TrashS><i className="fa fa-trash"></i></TrashS>
+        </Container>
     );
 };
 

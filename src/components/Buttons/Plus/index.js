@@ -3,9 +3,9 @@ import React from 'react';
 // Style
 import { PlusS } from './style';
 
-const Plus = ({ getDoing }) => {
+const Plus = ({ submitHandler }) => {
     return (
-        <PlusS onClick={getDoing}><i className="fa fa-plus"></i></PlusS>
+        <PlusS onClick={submitHandler}><i className="fa fa-plus"></i></PlusS>
     );
 };
 

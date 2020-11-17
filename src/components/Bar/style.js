@@ -1,5 +1,22 @@
 import styled from 'styled-components';
 
+export const ContainerBar = styled.div`
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+
+    span {
+        color: #000000;
+        font-size: 44px;
+        font-weight: 500;
+        position: absolute;
+        right: 30px;
+    }
+`;
+
 export const BarS = styled.div`
     position: relative;
     width: 70%;
