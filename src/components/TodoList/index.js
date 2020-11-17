@@ -2,15 +2,21 @@ import React from 'react';
 import Content from '../Content';
 
 // Style
-import { TodoListS } from './style';
+import { Null, TodoListS } from './style';
 
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, setTodos, dones, setDones }) => {
     return (
         <TodoListS>
-            {todos.map(todo => (
-                <Content text={todo.text} />
-            ))
+            {todos ? todos.map(todo => (
+                <Content 
+                    key={todo.id} 
+                    text={todo.text} 
+                    todos={todos} 
+                    todo={todo} 
+                    setTodos={setTodos}
+                />
+            )) : <Null>Nenhuma tarefa</Null>
             }
         </TodoListS>
     );

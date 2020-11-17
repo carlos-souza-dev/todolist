@@ -21,11 +21,11 @@ function App() {
         <h1>To do List</h1>
         <Bar/>
         <Input setTodos={setTodos} todos={todos} setInputText={setInputText} inputText={inputText} />
-        <TodoList todos={todos.length !== 0 ? todos : null}/>
+        <TodoList setTodos={setTodos} todos={todos.length !== 0 ? todos : null}/>
       </Section>
       <SectionDone>
       <h1>Concluído</h1>
-        <TodoList todos={dones}/>
+        <TodoList setDones={setDones} todos={dones} dones={dones} />
       </SectionDone>
     </Container>
   );
