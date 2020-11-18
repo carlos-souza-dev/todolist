@@ -9,7 +9,7 @@ export const Container = styled.article`
 `;
 
 
-export const ContentS = styled.div`
+export const DoneS = styled.div`
     width: 415.52px;
     height: 53.86px;
     background: #DADADA;

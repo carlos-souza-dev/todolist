@@ -12,17 +12,12 @@ import TodoList from './components/TodoList';
 function App() {
 
   const [ list, setList ] = useState([]);
+  const [ inputText, setInputText ] = useState('');
 
   useEffect(() => {
-
-    setTodos(list.filter((element) => element.done === false));    
-    setDones(list.filter((element) => element.done === true));    
    
   }, [list])
 
-  const [ inputText, setInputText ] = useState('');
-  const [ todos, setTodos ] = useState([]);
-  const [ dones, setDones ] = useState([]);
 
   return (
     <Container>
@@ -30,11 +25,11 @@ function App() {
         <h1>To do List</h1>
         <Bar/>
         <Input setList={setList} list={list} setInputText={setInputText} inputText={inputText} />
-        <TodoList setTodos={setTodos} setList={setList} list={list} todos={todos.length !== 0 ? todos : null}/>
+        <TodoList list={list} setList={setList} todos={list.length !== 0 ? list.filter((element) => element.done === false) : null}/>
       </Section>
       <SectionDone>
       <h1>Concluído</h1>
-        <TodoList setDones={setDones} todos={dones} dones={dones} />
+        <TodoList list={list} setList={setList} todos={list.length !== 0 ? list.filter((element) => element.done === true)  : null} />
       </SectionDone>
     </Container>
   );

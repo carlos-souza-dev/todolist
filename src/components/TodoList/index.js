@@ -1,24 +1,36 @@
 import React from 'react';
+
+// Component
 import Content from '../Content';
+import Done from '../Done'
 
 // Style
-import { Null, TodoListS } from './style';
+import { TodoListS } from './style';
 
 
-const TodoList = ({ todos, setTodos, setList, list }) => {
+const TodoList = ({ todos, setList, list }) => {
+
     return (
         <TodoListS>
             {todos ? todos.map(todo => (
+                todo.done === false ?
                 <Content 
                     key={todo.id} 
-                    text={todo.text} 
-                    todos={todos} 
+                    text={todo.text}
+                    done={todo.done} 
                     todo={todo} 
-                    setTodos={setTodos}
                     setList={setList}
                     list={list}
-                />
-            )) : <Null>Nenhuma tarefa</Null>
+                /> : 
+                <Done 
+                    key={todo.id} 
+                    text={todo.text}
+                    done={todo.done}
+                    todo={todo} 
+                    setList={setList}
+                    list={list}
+                /> 
+            )) : null
             }
         </TodoListS>
     );
