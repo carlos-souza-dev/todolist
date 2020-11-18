@@ -28,3 +28,7 @@ export const InputS = styled.input`
                 outline: none;
         }
 `;
+
+export const InputEditS = styled(InputS)`
+        
+`;

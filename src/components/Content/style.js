@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.article`
     width: 60%;
+    min-height: 60px;
     margin: 20px auto;
     display: flex;
     align-items: center;
@@ -10,6 +11,7 @@ export const Container = styled.article`
 
 
 export const ContentS = styled.div`
+    position: relative;
     width: 415.52px;
     height: 53.86px;
     background: #DADADA;
@@ -20,6 +22,13 @@ export const ContentS = styled.div`
     font-weight: 300;
     line-height: 53.86px;
     text-align: center;
+
+    .fa-edit {
+        position: absolute;
+        top: 50%;
+        right: 18px;
+        transform: translateY(-50%);    
+    }
 `;
 
 export const CheckS = styled.button`
@@ -40,6 +49,9 @@ export const CheckS = styled.button`
     &:focus {
         outline: none;
     }
+
+    &:active {
+        box-shadow: -2px -3px 0px #9CA1B1, 2px 3px 0px rgba(255, 255, 255, 0.5), inset -3px -3px 3px rgba(255, 255, 255, 0.5), inset 3px 3px 3px #9CA1B1;    }
 
     .fa-check{
         color: green;

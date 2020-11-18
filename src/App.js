@@ -13,19 +13,15 @@ function App() {
 
   const [ list, setList ] = useState([]);
   const [ inputText, setInputText ] = useState('');
-
-  useEffect(() => {
-   
-  }, [list])
-
+  const [ edit, setEdit ] = useState([]);
 
   return (
     <Container>
       <Section>
         <h1>To do List</h1>
         <Bar/>
-        <Input setList={setList} list={list} setInputText={setInputText} inputText={inputText} />
-        <TodoList list={list} setList={setList} todos={list.length !== 0 ? list.filter((element) => element.done === false) : null}/>
+        <Input setList={setList} list={list} setInputText={setInputText} inputText={inputText} edit={edit} setEdit={setEdit}/>
+        <TodoList list={list} setList={setList} todos={list.length !== 0 ? list.filter((element) => element.done === false) : null} setEdit={setEdit}/>
       </Section>
       <SectionDone>
       <h1>Concluído</h1>

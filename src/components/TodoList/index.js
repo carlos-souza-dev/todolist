@@ -8,7 +8,7 @@ import Done from '../Done'
 import { TodoListS } from './style';
 
 
-const TodoList = ({ todos, setList, list }) => {
+const TodoList = ({ todos, setList, list, setEdit }) => {
 
     return (
         <TodoListS>
@@ -21,6 +21,7 @@ const TodoList = ({ todos, setList, list }) => {
                     todo={todo} 
                     setList={setList}
                     list={list}
+                    setEdit={setEdit}
                 /> : 
                 <Done 
                     key={todo.id} 
