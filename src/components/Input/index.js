@@ -7,7 +7,7 @@ import { InputContainer, InputS } from './style';
 import Plus from '../Buttons/Plus';
 
 
-const Input = ({ setTodos, setInputText, todos, inputText }) => {
+const Input = ({ list, setList, setInputText, inputText }) => {
 
     const inputHandler = (e) => {
         setInputText(e.target.value);
@@ -15,8 +15,8 @@ const Input = ({ setTodos, setInputText, todos, inputText }) => {
     
     const submitHandler = (e) => {
         e.preventDefault();
-        setTodos([
-            ...todos, {done: false, text: inputText, id:todos.length === undefined ? 0 : todos.length}
+        setList([
+            ...list, {done: false, text: inputText, id:list.length === undefined ? 0 : list.length}
         ])
         setInputText('');
     };

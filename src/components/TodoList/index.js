@@ -5,7 +5,7 @@ import Content from '../Content';
 import { Null, TodoListS } from './style';
 
 
-const TodoList = ({ todos, setTodos, dones, setDones }) => {
+const TodoList = ({ todos, setTodos, setList, list }) => {
     return (
         <TodoListS>
             {todos ? todos.map(todo => (
@@ -15,6 +15,8 @@ const TodoList = ({ todos, setTodos, dones, setDones }) => {
                     todos={todos} 
                     todo={todo} 
                     setTodos={setTodos}
+                    setList={setList}
+                    list={list}
                 />
             )) : <Null>Nenhuma tarefa</Null>
             }
