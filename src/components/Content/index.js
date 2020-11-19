@@ -62,7 +62,7 @@ const Content = ({done, text, todo, list, setList, setEdit }) => {
         if(text){
             return (
                 <Container>
-                    <CheckS onClick={completeHandler}><i className={done === true ? "fa fa-undo" : "fa fa-check"}></i></CheckS>
+                    <CheckS onClick={completeHandler}><i className="material-icons" id="check">done</i></CheckS>
                     <ContentS>
                     <select name="timers" onChange={timerHandler} className={!toggle ? "timers-disabled" : ""} id="timers">
                         <option className="timer-option" value="0">0</option>
@@ -72,11 +72,11 @@ const Content = ({done, text, todo, list, setList, setEdit }) => {
                         <option className="timer-option" value="40">40  min</option>
                         <option className="timer-option" value="60">60  min</option>
                     </select>
-                    <span onClick={toggleHandler}><i className="fa fa-hourglass-start"></i></span>    
+                    <span onClick={toggleHandler}><i className="material-icons" id="timer">timer</i></span>    
                     {text}
                     <span onClick={editHandler} ><i className="fa fa-edit"></i></span>
                     </ContentS>
-                    <TrashS onClick={deleteHandler} ><i className="fa fa-trash"></i></TrashS>
+                    <TrashS onClick={deleteHandler} ><i className="material-icons" id="trash">delete_outline</i></TrashS>
                 </Container>
             );
         } 

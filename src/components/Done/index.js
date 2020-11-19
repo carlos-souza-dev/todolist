@@ -28,9 +28,9 @@ const Done = ({done, text, todo, list, setList }) => {
         if(text){
             return (
                 <Container>
-                    <CheckS onClick={completeHandler}><i className={done === true ? "fa fa-undo" : "fa fa-check"}></i></CheckS>
+                    <CheckS onClick={completeHandler}><i className="material-icons" id="return">keyboard_return</i></CheckS>
                     <DoneS>{text}</DoneS>
-                    <TrashS onClick={deleteHandler} ><i className="fa fa-trash"></i></TrashS>
+                    <TrashS onClick={deleteHandler} ><i className="material-icons" id="trash">delete_outline</i></TrashS>
                 </Container>
             );
 

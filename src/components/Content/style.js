@@ -12,7 +12,7 @@ export const Container = styled.article`
 
 export const ContentS = styled.div`
     position: relative;
-    width: 415.52px;
+    width: 500.52px;
     height: 53.86px;
     background: #DADADA;
     box-shadow: 4px 4px 7px #9CA1B1, -4px -4px 7px rgba(255,255,255,0.5);
@@ -31,7 +31,7 @@ export const ContentS = styled.div`
         cursor: pointer;    
     }
 
-    .fa-hourglass-start {
+    #timer {
         position: absolute;
         top: 50%;
         left: 18px;
@@ -69,6 +69,7 @@ export const ContentS = styled.div`
 export const CheckS = styled.button`
     width: 53.86px;
     height: 53.86px;
+    margin: 0 20px 0 auto;
     background: #DADADA;
     border: none;
     box-shadow: 4px 4px 7px #9CA1B1, -4px -4px 7px rgba(255,255,255,0.5);
@@ -90,20 +91,16 @@ export const CheckS = styled.button`
         box-shadow: -2px -3px 0px #9CA1B1, 2px 3px 0px rgba(255, 255, 255, 0.5), inset -3px -3px 3px rgba(255, 255, 255, 0.5), inset 3px 3px 3px #9CA1B1;    
     }
 
-    .fa-check{
+    #check{
         color: green;
-        font-size: 30px;
-        line-height: 53.86px; 
-    }
-
-    .fa-undo {
-        font-size: 30px;
+        font-size: 32px;
         line-height: 53.86px; 
     }
 `;
 
 export const TrashS = styled(CheckS)`
-
+    margin: 0 auto 0 20px;
+    
     &:hover {
         box-shadow: 3px 3px 2px #9CA1B1, -3px -3px 2px rgba(255, 255, 255, 0.5);
         transition: all linear 0.3s;
@@ -117,9 +114,9 @@ export const TrashS = styled(CheckS)`
         box-shadow: -2px -3px 0px #9CA1B1, 2px 3px 0px rgba(255, 255, 255, 0.5), inset -3px -3px 3px rgba(255, 255, 255, 0.5), inset 3px 3px 3px #9CA1B1;    
     }
 
-    .fa-trash{
+    #trash{
         color: red;
-        font-size: 30px;
+        font-size: 32px;
         line-height: 53.86px; 
     }
 `;
