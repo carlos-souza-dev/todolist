@@ -14,6 +14,11 @@ function App() {
   const [ list, setList ] = useState([]);
   const [ inputText, setInputText ] = useState('');
   const [ edit, setEdit ] = useState([]);
+  const [ hide, setHide ] = useState(false);
+
+  const hideHandler = () => {
+    setHide(!hide);
+  }
 
   return (
     <Container>
@@ -23,7 +28,8 @@ function App() {
         <Input setList={setList} list={list} setInputText={setInputText} inputText={inputText} edit={edit} setEdit={setEdit}/>
         <TodoList list={list} setList={setList} todos={list.length !== 0 ? list.filter((element) => element.done === false) : null} setEdit={setEdit}/>
       </Section>
-      <SectionDone>
+      <span onClick={hideHandler} className={`btn-hide ${hide ? "active-hide" : ""}`}>Ocultar</span>
+      <SectionDone hide={hide}>
       <h1>Concluído</h1>
         <TodoList list={list} setList={setList} todos={list.length !== 0 ? list.filter((element) => element.done === true)  : null} />
       </SectionDone>

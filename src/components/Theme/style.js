@@ -22,6 +22,7 @@ export const ColorS = styled.div`
         box-shadow: inset 3px 3px 3px #9CA1B1, inset -3px -3px 3px rgba(255, 255, 255, 0.5);
         border-radius: 30px;
         position: relative;
+        cursor: pointer;
 
         &:after {
             content: '';

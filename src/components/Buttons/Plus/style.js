@@ -9,6 +9,7 @@ export const PlusS = styled.button`
     border-radius: 10px;
     text-align: center;
     transition: all linear 0.3s;
+    cursor: pointer;
 
     &:hover {
         box-shadow: 3px 3px 2px #9CA1B1, -3px -3px 2px rgba(255, 255, 255, 0.5);
