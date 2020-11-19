@@ -30,6 +30,40 @@ export const ContentS = styled.div`
         transform: translateY(-50%);
         cursor: pointer;    
     }
+
+    .fa-hourglass-start {
+        position: absolute;
+        top: 50%;
+        left: 18px;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    #timers {
+        position: absolute;
+        top: 50%;
+        left: 48px;
+        padding: 3px;
+        transform: translateY(-50%);
+        box-shadow: 4px 4px 7px #9CA1B1, -4px -4px 7px rgba(255,255,255,0.5);
+        border-radius: 10px;
+        border: none;
+        font-weight: bold;
+
+        &:focus {
+            border: none;
+            outline: none;
+        }
+
+        .timer-option {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #DADADA;
+        }
+    }
+
+    .timers-disabled {
+        opacity: 0;
+    }
 `;
 
 export const CheckS = styled.button`
