@@ -5,7 +5,7 @@ import { PlusS } from './style';
 
 const Plus = ({ submitHandler }) => {
     return (
-        <PlusS onClick={submitHandler}><i className="material-icons">add</i></PlusS>
+            <PlusS onClick={submitHandler}><i className="material-icons">add</i></PlusS>
     );
 };
 

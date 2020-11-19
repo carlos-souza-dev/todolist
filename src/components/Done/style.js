@@ -42,6 +42,11 @@ export const CheckS = styled.button`
         outline: none;
     }
 
+    &:active {
+        box-shadow: -2px -3px 0px #9CA1B1, 2px 3px 0px rgba(255, 255, 255, 0.5), inset -3px -3px 3px rgba(255, 255, 255, 0.5), inset 3px 3px 3px #9CA1B1;    
+        transition: all linear 0.02s;
+    }
+
     #return {
         color: grey;
         font-size: 30px;
@@ -59,6 +64,11 @@ export const TrashS = styled(CheckS)`
 
     &:focus {
         outline: none;
+    }
+
+    &:active {
+        box-shadow: -2px -3px 0px #9CA1B1, 2px 3px 0px rgba(255, 255, 255, 0.5), inset -3px -3px 3px rgba(255, 255, 255, 0.5), inset 3px 3px 3px #9CA1B1;    
+        transition: all linear 0.02s;
     }
 
     #trash{

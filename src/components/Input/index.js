@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Style
-import { InputContainer, InputEditS, InputS } from './style';
+import { InputContainer, InputS } from './style';
 
 // Components
 import Plus from '../Buttons/Plus';
@@ -19,20 +19,19 @@ const Input = ({ list, setList, setInputText, inputText, edit, setEdit }) => {
     
     const submitHandler = (e) => {
         e.preventDefault();
-        if(inputText || edit){
-            if(edit.length > 0){
-                setList([
-                    ...list, {done: edit[0].done, text: edit[0].text, id: edit[0].id}
-                ])
-            } else {
-                setList([
-                    ...list, {done: false, text: inputText, id: list.length === undefined ? 0 : list.length}
-                ])
-            }
+        if(edit.length > 0){
+            setList([
+                ...list, {done: edit[0].done, text: edit[0].text, id: edit[0].id}
+            ])
+        } 
+        if(inputText){
+            setList([
+                ...list, {done: false, text: inputText, id: list.length === undefined ? 0 : list.length}
+            ])
+        }
             setInputText('');
             setEdit('');
-        }
-    };
+    } 
 
     return (
         <InputContainer>

@@ -22,13 +22,14 @@ export const PlusS = styled.button`
 
     &:active {
         box-shadow: -2px -3px 0px #9CA1B1, 2px 3px 0px rgba(255, 255, 255, 0.5), inset -3px -3px 3px rgba(255, 255, 255, 0.5), inset 3px 3px 3px #9CA1B1;    
+        transition: all linear 0.02s;
     }
 
     .material-icons{
         color: blue;
         font-size: 50px;
         line-height: 61px;
-        /* font-weight: bold; */
+        font-weight: bold;
         background: linear-gradient(90deg, #9B00FA 0%, #E01717 100%);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
