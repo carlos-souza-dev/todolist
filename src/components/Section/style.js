@@ -24,30 +24,14 @@ export const SectionDone = styled(SectionS)`
         box-shadow: 3px 3px 2px #9CA1B1, -3px -3px 2px rgba(255, 255, 255, 0.5);
         animation: hide-content 1s ease;
         text-decoration: line-through;
-
-        @keyframes hide-content {
-            0%{
-                opacity: 2;
-            }
-            25%{
-                opacity: .4;
-            }
-            50%{
-                opacity: .6;
-            }
-            75%{
-                opacity: .8;
-            }
-            100%{
-                opacity: 1;
-            }
-        }
     }
+
     button {
         box-shadow: 3px 3px 2px #9CA1B1, -3px -3px 2px rgba(255, 255, 255, 0.5);
         animation: hide-content .5s ease;    
+    }
 
-        @keyframes hide-content {
+    @keyframes hide-content {
             0%{
                 opacity: 0;
             }
@@ -68,7 +52,6 @@ export const SectionDone = styled(SectionS)`
         .fa {
             color: grey;
         }
-    }
 `;
 
 export const Container = styled.main`

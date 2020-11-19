@@ -6,12 +6,16 @@ import ColorTheme from '../Theme';
 // Style 
 import { BarS, ContainerBar } from './style';
 
-const Bar = () => {
+const Bar = ({ list }) => {
+
+    const totalDone = list.filter((item) => item.done === true).length;
+    const percent = parseFloat(((totalDone * 100) / list.length).toFixed(0));    
+
     return (
             <ContainerBar>
                 <ColorTheme/>
-                <BarS/>
-                <span>25%</span>
+                <BarS percent={percent}/>
+                <span>{percent}%</span>
             </ContainerBar>
     ); 
 

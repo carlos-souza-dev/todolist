@@ -19,7 +19,7 @@ function App() {
     <Container>
       <Section>
         <h1>To do List</h1>
-        <Bar/>
+        <Bar list={list}/>
         <Input setList={setList} list={list} setInputText={setInputText} inputText={inputText} edit={edit} setEdit={setEdit}/>
         <TodoList list={list} setList={setList} todos={list.length !== 0 ? list.filter((element) => element.done === false) : null} setEdit={setEdit}/>
       </Section>

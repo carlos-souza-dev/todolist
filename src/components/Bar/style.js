@@ -10,7 +10,7 @@ export const ContainerBar = styled.div`
 
     span {
         color: #000000;
-        font-size: 44px;
+        font-size: 34px;
         font-weight: 500;
         position: absolute;
         right: 30px;
@@ -30,10 +30,11 @@ export const BarS = styled.div`
         position: absolute;
         left: 0;
         top: 0;
-        width: 25%;
+        width: ${({percent}) =>  `${percent}%`};
         height: inherit;
         border-radius: 40px;
         background: linear-gradient(90deg, #9B00FA 0%, #E01717 100%);
         -webkit-text-fill-color: transparent;
+        transition: all ease-in-out 1.5s;
     }
 `;

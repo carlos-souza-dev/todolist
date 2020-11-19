@@ -19,21 +19,20 @@ const Input = ({ list, setList, setInputText, inputText, edit, setEdit }) => {
     
     const submitHandler = (e) => {
         e.preventDefault();
-        if(edit.length > 0){
-            setList([
-                ...list, {done: edit[0].done, text: edit[0].text, id: edit[0].id}
-            ])
-        } else {
-            setList([
-                ...list, {done: false, text: inputText, id: list.length === undefined ? 0 : list.length}
-            ])
+        if(inputText || edit){
+            if(edit.length > 0){
+                setList([
+                    ...list, {done: edit[0].done, text: edit[0].text, id: edit[0].id}
+                ])
+            } else {
+                setList([
+                    ...list, {done: false, text: inputText, id: list.length === undefined ? 0 : list.length}
+                ])
+            }
+            setInputText('');
+            setEdit('');
         }
-        setInputText('');
-        setEdit('');
     };
-
-    console.log("Edit",edit[0])
-    console.log("Text",inputText.length)
 
     return (
         <InputContainer>
@@ -43,7 +42,6 @@ const Input = ({ list, setList, setInputText, inputText, edit, setEdit }) => {
                 :
                 <InputS onChange={inputHandler} value={inputText} className="input-focus" type="text" placeholder="Adicionar Tarefa"/>
             }
-            {/* { edit ? <InputEditS value={edit}/> : null} */}
         </InputContainer>
     );
 };

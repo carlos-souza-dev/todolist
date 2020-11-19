@@ -19,6 +19,10 @@ export const PlusS = styled.button`
         outline: none;
     } 
 
+    &:active {
+        box-shadow: -2px -3px 0px #9CA1B1, 2px 3px 0px rgba(255, 255, 255, 0.5), inset -3px -3px 3px rgba(255, 255, 255, 0.5), inset 3px 3px 3px #9CA1B1;    
+    }
+
     .fa-plus{
         color: blue;
         font-size: 50px;

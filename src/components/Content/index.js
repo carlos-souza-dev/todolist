@@ -36,7 +36,8 @@ const Content = ({done, text, todo, list, setList, setEdit }) => {
             return (
                 <Container>
                     <CheckS onClick={completeHandler}><i className={done === true ? "fa fa-undo" : "fa fa-check"}></i></CheckS>
-                    <ContentS>{text}
+                    <ContentS>
+                    {text}
                     <span onClick={editHandler} ><i className="fa fa-edit"></i></span>
                     </ContentS>
                     <TrashS onClick={deleteHandler} ><i className="fa fa-trash"></i></TrashS>
