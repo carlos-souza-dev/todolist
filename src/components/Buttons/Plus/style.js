@@ -4,6 +4,7 @@ export const PlusS = styled.button`
     width: 61px;
     height: 61px;
     background: #DADADA;
+    margin: 0 10px 0 auto;
     border: none;
     box-shadow: 4px 4px 7px #9CA1B1, -4px -4px 7px rgba(255,255,255,0.5);
     border-radius: 10px;

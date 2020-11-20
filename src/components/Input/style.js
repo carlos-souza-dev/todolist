@@ -12,6 +12,7 @@ export const InputS = styled.input`
         width: 624px;
         height: 56px;
         background: #DADADA;
+        margin: 0 auto 0 10px;
         box-shadow: inset 6px 6px 5px #9CA1B1, inset -6px -6px 5px rgba(255, 255, 255, 0.5);
         border-radius: 30px;
         font-size: 24px;

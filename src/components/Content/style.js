@@ -42,8 +42,18 @@ export const ContentS = styled.div`
         z-index: 3;
         line-height: 53.86px;
         display: block;
-        color: black;
+        color: ${({background}) => `${background >= 100 ? "white" : "black"}`};
+        animation: ${({background}) => `${background >= 100 ? "transform .1s linear" : ""}`}
     }
+
+    @keyframes transform {
+            0%{
+                transform: translateX(30%)
+            }
+            50%{
+                transform: translateX(-30%)
+            }
+        }
 
     .fa-edit {
         z-index: 3;

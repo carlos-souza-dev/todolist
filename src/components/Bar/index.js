@@ -15,7 +15,7 @@ const Bar = ({ list }) => {
             <ContainerBar>
                 <ColorTheme/>
                 <BarS percent={percent}/>
-                <span>{percent}%</span>
+                <span>{percent ? percent : 0}%</span>
             </ContainerBar>
     ); 
 

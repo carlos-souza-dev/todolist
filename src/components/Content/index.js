@@ -31,20 +31,21 @@ const Content = ({done, text, todo, list, setList, edit, setEdit }) => {
         setList(list.filter((element) => element.id !== todo.id));
     };
 
-    const [ seconds, setSeconds ] = useState();
-    const [ time, setTimer ] = useState(0);
+    const [ seconds, setSeconds ] = useState(0);
+    const [ time, setTimer ] = useState();
     const [ toggle, setToggle ] = useState(false);
 
-    // const percent = parseFloat(((seconds * 100) / time).toFixed(0)); 
-
     useEffect(() => {
+        if(seconds === 3){
+            toggleHandler();
+        }
         if(seconds < time){
         const interval = setInterval(() => {
                setSeconds(seconds => seconds + 1)
             }, 1000);
             return () => clearInterval(interval);
-        }
-    }, [seconds]);
+        }        
+    }, [seconds, time]);
 
     const toggleHandler = () => {
         setToggle(!toggle);
@@ -55,9 +56,6 @@ const Content = ({done, text, todo, list, setList, edit, setEdit }) => {
         setTimer(Number(e.target.value));
         setSeconds(0)
     }
-
-    console.log(time)
-
     
     if(text){
         return (
