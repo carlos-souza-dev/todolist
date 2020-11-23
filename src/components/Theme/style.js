@@ -17,7 +17,7 @@ export const ColorS = styled.div`
 
     .button {
         width: 100%;
-        height: 25px;
+        height: 32px;
         border-radius: 30px;
         box-shadow: inset 3px 3px 3px${({currentTheme}) => `${currentTheme.shadowDark}`}, inset -3px -3px 3px ${({currentTheme}) => `${currentTheme.shadowLight}`};
         border-radius: 30px;

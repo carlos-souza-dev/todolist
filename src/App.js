@@ -12,7 +12,6 @@ import TodoList from './components/TodoList';
 function App() {
 
   const [ themes, setThemes ] = useState(false);
-  const [ currentTheme, setCurrentTheme ] = useState(Themes.light);
   const [ list, setList ] = useState([]);
   const [ inputText, setInputText ] = useState('');
   const [ edit, setEdit ] = useState([]);
@@ -23,17 +22,17 @@ function App() {
   }
   
   return (
-    <Container currentTheme={currentTheme}>
-      <Section currentTheme={currentTheme}>
+    <Container currentTheme={themes ? Themes.dark : Themes.light}>
+      <Section currentTheme={themes ? Themes.dark : Themes.light}>
         <h1 className="title-h1" >To do List</h1>
-        <Bar arrayThemes={Themes} setCurrentTheme={setCurrentTheme} themes={themes} setThemes={setThemes} currentTheme={currentTheme} list={list}/>
-        <Input currentTheme={currentTheme} setList={setList} list={list} setInputText={setInputText} inputText={inputText} edit={edit} setEdit={setEdit}/>
-        <TodoList currentTheme={currentTheme} list={list} setList={setList} todos={list.length !== 0 ? list.filter((element) => element.done === false) : null} setEdit={setEdit}/>
+        <Bar arrayThemes={Themes} themes={themes} setThemes={setThemes} currentTheme={themes ? Themes.dark : Themes.light} list={list}/>
+        <Input currentTheme={themes ? Themes.dark : Themes.light} setList={setList} list={list} setInputText={setInputText} inputText={inputText} edit={edit} setEdit={setEdit}/>
+        <TodoList currentTheme={themes ? Themes.dark : Themes.light} list={list} setList={setList} todos={list.length !== 0 ? list.filter((element) => element.done === false) : null} setEdit={setEdit}/>
       </Section>
       <span onClick={hideHandler} className={`btn-hide ${hide ? "active-hide" : ""}`}>Ocultar</span>
-      <SectionDone currentTheme={currentTheme} hide={hide}>
+      <SectionDone currentTheme={themes ? Themes.dark : Themes.light} hide={hide}>
       <h1 className="title-h1">Concluído</h1>
-        <TodoList currentTheme={currentTheme} list={list} setList={setList} todos={list.length !== 0 ? list.filter((element) => element.done === true)  : null} />
+        <TodoList currentTheme={themes ? Themes.dark : Themes.light} list={list} setList={setList} todos={list.length !== 0 ? list.filter((element) => element.done === true)  : null} />
       </SectionDone>
     </Container>
   );

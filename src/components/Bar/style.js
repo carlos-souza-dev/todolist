@@ -9,7 +9,7 @@ export const ContainerBar = styled.div`
 
     .percent {
         color: ${({currentTheme}) => `${currentTheme.textEnabled}`};
-        font-size: 34px;
+        font-size: 40px;
         font-weight: 500;
         position: absolute;
         right: 5%;
