@@ -3,9 +3,9 @@ import React from 'react';
 // Style
 import { SectionS } from './style';
 
-const Section = ({ children }) => {
+const Section = ({ children, currentTheme }) => {
     return (
-        <SectionS>{children}</SectionS>
+        <SectionS currentTheme={currentTheme} >{children}</SectionS>
     );
 };
 

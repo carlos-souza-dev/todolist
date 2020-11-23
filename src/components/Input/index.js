@@ -7,7 +7,7 @@ import { InputContainer, InputS } from './style';
 import Plus from '../Buttons/Plus';
 
 
-const Input = ({ list, setList, setInputText, inputText, edit, setEdit }) => {
+const Input = ({ list, setList, setInputText, inputText, edit, setEdit, currentTheme }) => {
 
     const inputHandler = (e) => {
         if( edit.length > 0 ) {
@@ -34,12 +34,12 @@ const Input = ({ list, setList, setInputText, inputText, edit, setEdit }) => {
     } 
 
     return (
-        <InputContainer>
-            <Plus submitHandler={submitHandler} />
+        <InputContainer currentTheme={currentTheme}>
+            <Plus currentTheme={currentTheme} submitHandler={submitHandler} />
             { edit.length > 0 ?
-                <InputS onChange={inputHandler} value={edit[0].text}   className="input-focus" type="text"/>
+                <InputS currentTheme={currentTheme} onChange={inputHandler} value={edit[0].text}   className="input-focus" type="text"/>
                 :
-                <InputS onChange={inputHandler} value={inputText} className="input-focus" type="text" placeholder="Adicionar Tarefa"/>
+                <InputS currentTheme={currentTheme} onChange={inputHandler} value={inputText} className="input-focus" type="text" placeholder="Adicionar Tarefa"/>
             }
         </InputContainer>
     );

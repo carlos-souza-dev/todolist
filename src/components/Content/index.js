@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 // Style
 import { Container, ContentS, CheckS, TrashS } from './style';
 
-const Content = ({done, text, todo, list, setList, edit, setEdit }) => {
+const Content = ({ text, todo, list, setList, setEdit, currentTheme }) => {
 
     const deleteHandler = () => {
         setList(list.filter((element) => element.id !== todo.id));   
@@ -37,7 +37,7 @@ const Content = ({done, text, todo, list, setList, edit, setEdit }) => {
 
     useEffect(() => {
         if(seconds === 3){
-            toggleHandler();
+            setToggle(false);
         }
         if(seconds < time){
         const interval = setInterval(() => {
@@ -52,20 +52,19 @@ const Content = ({done, text, todo, list, setList, edit, setEdit }) => {
     };
 
     const timerHandler = (e) => {
-        // setTimer(Number(e.target.value) * 60);
-        setTimer(Number(e.target.value));
+        setTimer(Number(e.target.value) * 60);
         setSeconds(0)
     }
     
     if(text){
         return (
-            <Container>
-                <CheckS onClick={completeHandler}><i className="material-icons" id="check">done</i></CheckS>
-                <ContentS background={parseFloat(((seconds * 100) / time).toFixed(0))}>
+            <Container currentTheme={currentTheme}>
+                <CheckS currentTheme={currentTheme} onClick={completeHandler}><i className="material-icons" id="check">done</i></CheckS>
+                <ContentS currentTheme={currentTheme} background={parseFloat(((seconds * 100) / time).toFixed(0))}>
                 <select name="timers" onChange={timerHandler} className={!toggle ? "timers-disabled" : ""} id="timers">
                     <option className="timer-option" value="">0</option>
-                    <option className="timer-option" value="10">10 min</option>
-                    <option className="timer-option" value="20">20  min</option>
+                    <option className="timer-option" value="1">1 min</option>
+                    <option className="timer-option" value="20">10  min</option>
                     <option className="timer-option" value="30">30  min</option>
                     <option className="timer-option" value="40">40  min</option>
                     <option className="timer-option" value="60">60  min</option>
@@ -74,7 +73,7 @@ const Content = ({done, text, todo, list, setList, edit, setEdit }) => {
                 <p className="text-content">{text}</p>
                 <span onClick={editHandler} ><i className="fa fa-edit"></i></span>
                 </ContentS>
-                <TrashS onClick={deleteHandler} ><i className="material-icons" id="trash">delete_outline</i></TrashS>
+                <TrashS currentTheme={currentTheme} onClick={deleteHandler} ><i className="material-icons" id="trash">delete_outline</i></TrashS>
             </Container>
         );
     } 

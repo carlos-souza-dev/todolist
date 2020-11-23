@@ -12,8 +12,8 @@ export const Container = styled.article`
 export const DoneS = styled.div`
     width: 500.52px;
     height: 53.86px;
-    background: #DADADA;
-    box-shadow: 4px 4px 7px #9CA1B1, -4px -4px 7px rgba(255,255,255,0.5);
+    background: ${({currentTheme}) => `${currentTheme.background}`};
+    box-shadow: 4px 4px 7px ${({currentTheme}) => `${currentTheme.shadowDark}`}, -4px -4px 7px ${({currentTheme}) => `${currentTheme.shadowLight}`};
     border-radius: 10px;
     font-size: 24px;
     font-family: sans-serif;
@@ -26,15 +26,14 @@ export const CheckS = styled.button`
     width: 53.86px;
     height: 53.86px;
     margin: 0 20px 0 auto;
-    background: #DADADA;
+    background: ${({currentTheme}) => `${currentTheme.background}`};
     border: none;
-    box-shadow: 4px 4px 7px #9CA1B1, -4px -4px 7px rgba(255,255,255,0.5);
+    box-shadow: 4px 4px 7px ${({currentTheme}) => `${currentTheme.shadowDark}`}, -4px -4px 7px ${({currentTheme}) => `${currentTheme.shadowLight}`};
     border-radius: 10px;
     text-align: center;
-    transition: all linear 0.3s;
 
     &:hover {
-        box-shadow: 3px 3px 2px #9CA1B1, -3px -3px 2px rgba(255, 255, 255, 0.5);
+        box-shadow: 3px 3px 2px ${({currentTheme}) => `${currentTheme.shadowDark}`}, -3px -3px 2px ${({currentTheme}) => `${currentTheme.shadowLight}`};
         transition: all linear 0.3s;
     }
 
@@ -43,12 +42,12 @@ export const CheckS = styled.button`
     }
 
     &:active {
-        box-shadow: -2px -3px 0px #9CA1B1, 2px 3px 0px rgba(255, 255, 255, 0.5), inset -3px -3px 3px rgba(255, 255, 255, 0.5), inset 3px 3px 3px #9CA1B1;    
+        box-shadow: -2px -3px 0px ${({currentTheme}) => `${currentTheme.shadowDark}`}, 2px 3px 0px ${({currentTheme}) => `${currentTheme.shadowLight}`}, inset -3px -3px 3px ${({currentTheme}) => `${currentTheme.shadowLight}`}, inset 3px 3px 3px ${({currentTheme}) => `${currentTheme.shadowDark}`};    
         transition: all linear 0.02s;
     }
 
     #return {
-        color: grey;
+        color: ${({currentTheme}) => `${currentTheme.textDisabled}`};
         font-size: 30px;
         line-height: 53.86px; 
     }
@@ -58,7 +57,7 @@ export const TrashS = styled(CheckS)`
     margin: 0 auto 0 20px;
 
     &:hover {
-        box-shadow: 3px 3px 2px #9CA1B1, -3px -3px 2px rgba(255, 255, 255, 0.5);
+        box-shadow: 3px 3px 2px ${({currentTheme}) => `${currentTheme.shadowDark}`}, -3px -3px 2px ${({currentTheme}) => `${currentTheme.shadowLight}`};
         transition: all linear 0.3s;
     }
 
@@ -67,12 +66,12 @@ export const TrashS = styled(CheckS)`
     }
 
     &:active {
-        box-shadow: -2px -3px 0px #9CA1B1, 2px 3px 0px rgba(255, 255, 255, 0.5), inset -3px -3px 3px rgba(255, 255, 255, 0.5), inset 3px 3px 3px #9CA1B1;    
+        box-shadow: -2px -3px 0px ${({currentTheme}) => `${currentTheme.shadowDark}`}, 2px 3px 0px ${({currentTheme}) => `${currentTheme.shadowLight}`}, inset -3px -3px 3px ${({currentTheme}) => `${currentTheme.shadowDark}`}, inset 3px 3px 3px ${({currentTheme}) => `${currentTheme.shadowLight}`};    
         transition: all linear 0.02s;
     }
 
     #trash{
-        color: grey;
+        color: ${({currentTheme}) => `${currentTheme.textDisabled}`};
         font-size: 30px;
         line-height: 53.86px; 
     }

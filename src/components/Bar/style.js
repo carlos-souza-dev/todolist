@@ -6,14 +6,13 @@ export const ContainerBar = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 100%;
 
-    span {
-        color: #000000;
+    .percent {
+        color: ${({currentTheme}) => `${currentTheme.textEnabled}`};
         font-size: 34px;
         font-weight: 500;
         position: absolute;
-        right: 30px;
+        right: 5%;
     }
 `;
 
@@ -21,8 +20,8 @@ export const BarS = styled.div`
     position: relative;
     width: 70%;
     height: 25px;
-    background: #DADADA;
-    box-shadow: 4px 4px 7px #9CA1B1, -4px -4px 7px rgba(255,255,255,0.5);
+    background: ${({currentTheme}) => `${currentTheme.background}`};
+    box-shadow: 4px 4px 7px ${({currentTheme}) => `${currentTheme.shadowDark}`}, -4px -4px 7px ${({currentTheme}) => `${currentTheme.shadowLight}`};
     border-radius: 30px;
 
     &:after {
@@ -34,7 +33,7 @@ export const BarS = styled.div`
         width: ${({percent}) =>  `${percent}%`};
         height: inherit;
         border-radius: 40px;
-        background: linear-gradient(90deg, #9B00FA 0%, #E01717 100%);
+        background: linear-gradient(90deg, ${({currentTheme}) => `${currentTheme.beginGradient+" 0%,"+currentTheme.endGradient+" 100%"}`});
         -webkit-text-fill-color: transparent;
         transition: all linear 1.5s;
     }
@@ -48,10 +47,10 @@ export const BarS = styled.div`
         width: ${({percent}) =>  `${percent}%`};
         height: inherit;
         border-radius: 40px;
-        background: linear-gradient(90deg, #9B00FA 0%, #E01717 100%);
+        background: linear-gradient(90deg, ${({currentTheme}) => `${currentTheme.beginGradient+" 0%,"+currentTheme.endGradient+" 100%"}`});
         -webkit-text-fill-color: transparent;
         opacity: ${({percent}) => `${percent === 100 ? 1 : 0}`};
-        animation: ${({percent}) =>  `${percent >= 100 ? "scale 1s linear 1.5s" : ""}`};
+        animation: ${({percent}) =>  `${percent >= 100 ? "scale 1.5s linear 1.5s" : ""}`};
         transition: all linear 1.5s;
     }
 
@@ -60,17 +59,17 @@ export const BarS = styled.div`
             transform: scale(1);
             opacity: 1;
         }
+        25%{
+            opacity: 0;
+            transform: scale(1.5, 2.5);
+        }
         50%{
             opacity: 0;
-            transform: scale(1.5);
+            transform: scale(2, 3);
         }
         100%{
             opacity: 0;
             transform: scale(1);
         }
     }
-
-
-
-
 `;

@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Style
 import { ColorS } from './style';
 
-const ColorTheme = () => {
+const ColorTheme = ({currentTheme, themesHandler }) => {
+
+    const [ btnActive, setBtnActive ] = useState(false);
+
+    const changeTheme = () => {
+        setBtnActive(!btnActive)
+    };
+
     return (
-        <ColorS>
+        <ColorS btnActive={btnActive} currentTheme={currentTheme}>
             <p>Tema</p>
-            <div className="button"></div>
+            <div onClick={() => {
+                themesHandler();
+                changeTheme();
+            }} className={`button`}></div>
         </ColorS>
     );
 };

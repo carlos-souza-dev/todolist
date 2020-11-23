@@ -8,13 +8,14 @@ import Done from '../Done'
 import { TodoListS } from './style';
 
 
-const TodoList = ({ todos, setList, list, setEdit }) => {
+const TodoList = ({ todos, setList, list, setEdit, currentTheme }) => {
 
     return (
-        <TodoListS>
+        <TodoListS currentTheme={currentTheme}>
             {todos ? todos.map(todo => (
                 todo.done === false ?
                 <Content 
+                    currentTheme={currentTheme}
                     key={todo.id} 
                     text={todo.text}
                     done={todo.done} 
@@ -24,6 +25,7 @@ const TodoList = ({ todos, setList, list, setEdit }) => {
                     setEdit={setEdit}
                 /> : 
                 <Done 
+                    currentTheme={currentTheme}
                     key={todo.id} 
                     text={todo.text}
                     done={todo.done}
