@@ -24,7 +24,7 @@ function App() {
   return (
     <Container currentTheme={themes ? Themes.dark : Themes.light}>
       <Section currentTheme={themes ? Themes.dark : Themes.light}>
-        <h1 className="title-h1" >To do List</h1>
+        <h1 className="title-h1" >To Do List</h1>
         <Bar arrayThemes={Themes} themes={themes} setThemes={setThemes} currentTheme={themes ? Themes.dark : Themes.light} list={list}/>
         <Input currentTheme={themes ? Themes.dark : Themes.light} setList={setList} list={list} setInputText={setInputText} inputText={inputText} edit={edit} setEdit={setEdit}/>
         <TodoList currentTheme={themes ? Themes.dark : Themes.light} list={list} setList={setList} todos={list.length !== 0 ? list.filter((element) => element.done === false) : null} setEdit={setEdit}/>

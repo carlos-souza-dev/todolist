@@ -19,7 +19,7 @@ export const ColorS = styled.div`
         width: 100%;
         height: 32px;
         border-radius: 30px;
-        box-shadow: inset 3px 3px 3px${({currentTheme}) => `${currentTheme.shadowDark}`}, inset -3px -3px 3px ${({currentTheme}) => `${currentTheme.shadowLight}`};
+        box-shadow: inset 3px 3px 3px ${({currentTheme}) => `${currentTheme.shadowDark}`}, inset -3px -3px 3px ${({currentTheme}) => `${currentTheme.shadowLight}`};
         border-radius: 30px;
         position: relative;
         cursor: pointer;

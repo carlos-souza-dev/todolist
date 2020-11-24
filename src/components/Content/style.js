@@ -74,7 +74,7 @@ export const ContentS = styled.div`
         left: 18px;
         transform: translateY(-50%);
         cursor: pointer;
-        color: ${({currentTheme}) => `${currentTheme.iconColor}`}; 
+        color: ${({currentTheme, time}) => `${time > 0 ? currentTheme.check : currentTheme.iconColor}`}; 
     }
 
     #timers {

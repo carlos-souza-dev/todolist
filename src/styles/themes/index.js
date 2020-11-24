@@ -1,7 +1,7 @@
 const themes = {
     light: {        
-        shadowLight: '#FFFFFF',
-        shadowDark: '#9CA1B1',
+        shadowLight: 'rgba(255, 255, 255, 0.75)',
+        shadowDark: 'rgba(111, 117, 137, 0.75)',
         textEnabled: '#000000',
         textDisabled: '#A1A4AB',
         textTrasition: '#FFFFFF',
@@ -15,8 +15,8 @@ const themes = {
         theme: '#32353C'
     },
     dark: {
-        shadowLight: '#474E54',
-        shadowDark: '#25262C',
+        shadowLight: 'rgba(92, 99, 105, 0.75)',
+        shadowDark: 'rgba(28, 29, 33, 0.75)',
         textEnabled: '#e2e2e2',
         textDisabled: '#A1A4AB',
         textTrasition: '#000000',

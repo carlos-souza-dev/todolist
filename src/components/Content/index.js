@@ -60,7 +60,7 @@ const Content = ({ text, todo, list, setList, setEdit, currentTheme }) => {
         return (
             <Container currentTheme={currentTheme}>
                 <CheckS currentTheme={currentTheme} onClick={completeHandler}><i className="material-icons" id="check">done</i></CheckS>
-                <ContentS currentTheme={currentTheme} background={parseFloat(((seconds * 100) / time).toFixed(0))}>
+                <ContentS time={time} currentTheme={currentTheme} background={parseFloat(((seconds * 100) / time).toFixed(0))}>
                 <select name="timers" onChange={timerHandler} className={!toggle ? "timers-disabled" : ""} id="timers">
                     <option className="timer-option" value="">0</option>
                     <option className="timer-option" value="1">1 min</option>

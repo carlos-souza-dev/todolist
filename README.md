@@ -2,8 +2,11 @@
 
 - Projeto React.
 
-## Prototipo [Figma]
-#### Link - [Protótipo de Alta Fidelidade](https://www.figma.com/proto/PbFMR0iGCMxDNGH5b0ongP/To-Do-List?node-id=23%3A199&viewport=-69%2C349%2C0.6126126646995544&scaling=min-zoom)
+## Protótipo [Figma]
+#### Link - [Protótipo de Alta Fidelidade](https://www.figma.com/proto/PbFMR0iGCMxDNGH5b0ongP/To-Do-List?node-id=91%3A213&scaling=min-zoom)
+
+## Deploy [Heroku]
+#### Link - [To do List](https://todolist-react-aplication.herokuapp.com)
 
 
 ![Imagém da página desktop](https://github.com/carlos-souza-dev/todolist/blob/main/src/assets/Dark-Desktop.png)
