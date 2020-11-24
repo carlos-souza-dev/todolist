@@ -23,4 +23,5 @@
 
 ### Rodar o projeto
 
-1.**`npm start`** no terminal.
+1.**`npm install`**
+2.**`npm start`**
