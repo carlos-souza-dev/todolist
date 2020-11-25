@@ -4,6 +4,7 @@ import React from 'react';
 import { SectionS } from './style';
 
 const Section = ({ children, currentTheme }) => {
+    
     return (
         <SectionS currentTheme={currentTheme} >{children}</SectionS>
     );

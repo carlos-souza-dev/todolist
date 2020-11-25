@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Themes from './styles/themes/index';
 // Style
 import { Container, SectionDone } from './components/Section/style';
@@ -11,11 +11,51 @@ import TodoList from './components/TodoList';
 
 function App() {
 
+  // App start run once
+  useEffect(() => {
+    getLocalList();
+    getLocalThemeHide();
+  },[]);
+
   const [ themes, setThemes ] = useState(false);
   const [ list, setList ] = useState([]);
   const [ inputText, setInputText ] = useState('');
   const [ edit, setEdit ] = useState([]);
   const [ hide, setHide ] = useState(false);
+  
+   
+  useEffect(() => {
+    const saveLocalList = () => {
+        localStorage.setItem("list", JSON.stringify(list))
+    }
+
+    const saveLocalTheme = () => {
+      localStorage.setItem('theme-hide', JSON.stringify({theme: themes, hide: hide}))
+    }
+
+    saveLocalList();
+    saveLocalTheme();
+  },[list, themes, hide])
+  
+
+  const getLocalList = () => {
+    if(localStorage.getItem("list") === null){
+      localStorage.setItem("list", JSON.stringify([])) 
+    } else {
+      let localList = JSON.parse(localStorage.getItem("list"));
+      setList(localList)
+    }
+  }
+
+  const getLocalThemeHide = () => {
+    if(JSON.parse(localStorage.getItem("theme-hide")).theme){
+      setThemes(true);
+    }
+
+    if(JSON.parse(localStorage.getItem("theme-hide")).hide){
+      setHide(true);
+    }
+  }
 
   const hideHandler = () => {
     setHide(!hide);

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // Style
 import { ColorS } from './style';
 
-const ColorTheme = ({currentTheme, themesHandler }) => {
+const ColorTheme = ({ currentTheme, themesHandler }) => {
 
     const [ btnActive, setBtnActive ] = useState(false);
 
