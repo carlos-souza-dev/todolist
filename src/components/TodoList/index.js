@@ -10,6 +10,12 @@ import { TodoListS } from './style';
 
 const TodoList = ({ todos, setList, list, setEdit, currentTheme }) => {
 
+    if(todos){
+        todos.sort(function(a,b){
+            return parseInt(a.id)  - parseInt(b.id);
+        })
+    }
+
     return (
         <TodoListS currentTheme={currentTheme}>
             {todos ? todos.map(todo => (

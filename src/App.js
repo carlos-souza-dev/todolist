@@ -11,30 +11,24 @@ import TodoList from './components/TodoList';
 
 function App() {
 
-  // App start run once
-  useEffect(() => {
-    getLocalList();
-    getLocalThemeHide();
-  },[]);
-
   const [ themes, setThemes ] = useState(false);
   const [ list, setList ] = useState([]);
   const [ inputText, setInputText ] = useState('');
   const [ edit, setEdit ] = useState([]);
   const [ hide, setHide ] = useState(false);
   
+  // App start run once
+  useEffect(() => {
+    getLocalList();
+    getLocalThemeHide();
+  },[]);
    
   useEffect(() => {
-    const saveLocalList = () => {
-        localStorage.setItem("list", JSON.stringify(list))
-    }
+    
+    localStorage.setItem("list", JSON.stringify(list))
+    localStorage.setItem("theme", themes);
+    localStorage.setItem('hide', hide)
 
-    const saveLocalTheme = () => {
-      localStorage.setItem('theme-hide', JSON.stringify({theme: themes, hide: hide}))
-    }
-
-    saveLocalList();
-    saveLocalTheme();
   },[list, themes, hide])
   
 
@@ -48,12 +42,16 @@ function App() {
   }
 
   const getLocalThemeHide = () => {
-    if(JSON.parse(localStorage.getItem("theme-hide")).theme){
-      setThemes(true);
+    if(localStorage.getItem("theme") === null) {
+      setThemes(false);
+    } else {
+      setThemes(JSON.parse(localStorage.getItem("theme")));
     }
 
-    if(JSON.parse(localStorage.getItem("theme-hide")).hide){
-      setHide(true);
+    if(localStorage.getItem("hide") === null){
+      setHide(false);
+    } else {
+      setHide(JSON.parse(localStorage.getItem("hide")));
     }
   }
 

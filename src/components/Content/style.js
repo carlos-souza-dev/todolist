@@ -40,6 +40,7 @@ export const ContentS = styled.div`
     }
 
     .text-content {
+        width: 73.5%;
         z-index: 3;
         margin: 0;
         line-height: 53.86px;
@@ -48,14 +49,68 @@ export const ContentS = styled.div`
         animation: ${({background}) => `${background >= 100 ? "transform .1s linear" : ""}`}
     }
 
-    @keyframes transform {
-            0%{
-                transform: translateX(30%)
-            }
-            50%{
-                transform: translateX(-30%)
-            }
-        }
+    .fa-sort {
+        opacity: ${({order}) => `${order.up || order.down ? 0 : 1}`};
+        cursor: ${({order}) => `${order.up || order.down ? "" : "pointer"}`};
+        z-index: 3;
+        position: absolute;
+        top: 50%;
+        right: 52px;
+        transform: translateY(-50%);
+        color: ${({currentTheme}) => `${currentTheme.iconColor}`}; 
+        transition: opacity linear 0.4s;
+    }
+
+    .fa-times {
+        cursor: pointer;
+        z-index: 3;
+        position: absolute;
+        top: 50%;
+        right: 52px;
+        transform: translate(18%, -50%);
+        color: ${({currentTheme}) => `${currentTheme.trash}`};
+        transition: opacity linear 0.4s; 
+    }  
+
+    .fa-sort-up {
+        opacity: ${({order}) => `${order.up ? 1 : 0}`};
+        z-index: 3;
+        width: 0px;
+        color: ${({currentTheme}) => `${currentTheme.iconColor}`}; 
+        cursor: pointer;
+        font-size: 0px;
+        transform: translate(-2px,0px);
+        transition: color linear .2s;
+        transition: transform linear .2s;
+        transition: opacity linear 0.4s;
+    }
+
+    .up-active {
+        z-index: 3;
+        font-size: 34px;
+        transform: translateY(-28px);
+        transition: all linear 0.4s;
+    }
+
+    .fa-sort-down {
+        opacity: ${({order}) => `${order.down ? 1 : 0}`};
+        z-index: 3;
+        width: 0px;
+        color: ${({currentTheme}) => `${currentTheme.iconColor}`}; 
+        cursor: pointer;
+        font-size: 24px;
+        transform: translateY(-2px,0px);
+        transition: color linear .2s;
+        transition: transform linear .2s;
+        transition: opacity linear 0.4s;
+    }  
+
+    .down-active {
+        z-index: 3;
+        font-size: 34px;
+        transform: translateY(35px);
+        transition: all linear 0.4s;
+    }
 
     .fa-edit {
         z-index: 3;
@@ -105,6 +160,16 @@ export const ContentS = styled.div`
 
     .timers-disabled {
         opacity: 0;
+    }
+
+
+    @keyframes transform {
+        0%{
+            transform: translateX(30%)
+        }
+        50%{
+            transform: translateX(-30%)
+        }
     }
 `;
 

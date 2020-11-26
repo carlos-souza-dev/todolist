@@ -35,7 +35,8 @@ export const SectionDone = styled(SectionS)`
     }
 
     .title-h1 {
-        width: 200px;
+        width: 220px;
+        text-align: center;
         display: block;
         margin: 24px auto 0 auto;
     }
