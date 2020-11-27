@@ -134,7 +134,6 @@ const Content = ({ text, todo, list, setList, setEdit, currentTheme }) => {
         }
     };
 
-    
     if(text){
         return (
             <Container currentTheme={currentTheme}>

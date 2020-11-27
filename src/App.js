@@ -59,16 +59,19 @@ function App() {
     setHide(!hide);
   }
   
+  console.log(list.filter((element) => element.done === true).length)
+  const height = list.filter((element) => element.done === true).length;
+
   return (
-    <Container currentTheme={themes ? Themes.dark : Themes.light}>
+    <Container hide={hide} currentTheme={themes ? Themes.dark : Themes.light}>
       <Section currentTheme={themes ? Themes.dark : Themes.light}>
         <h1 className="title-h1" >To Do List</h1>
         <Bar arrayThemes={Themes} themes={themes} setThemes={setThemes} currentTheme={themes ? Themes.dark : Themes.light} list={list}/>
         <Input currentTheme={themes ? Themes.dark : Themes.light} setList={setList} list={list} setInputText={setInputText} inputText={inputText} edit={edit} setEdit={setEdit}/>
         <TodoList currentTheme={themes ? Themes.dark : Themes.light} list={list} setList={setList} todos={list.length !== 0 ? list.filter((element) => element.done === false) : null} setEdit={setEdit}/>
       </Section>
-      <span onClick={hideHandler} className={`btn-hide ${hide ? "active-hide" : ""}`}>Ocultar</span>
-      <SectionDone currentTheme={themes ? Themes.dark : Themes.light} hide={hide}>
+      <span onClick={hideHandler} className="btn-hide" >{hide ? "Mostrar" : "Ocultar" }</span>
+      <SectionDone heightValue={height > 0 ? height * 100 + "px" : "0px"} currentTheme={themes ? Themes.dark : Themes.light} hide={hide} className={hide ? "done-hide" : ""}>
       <h1 className="title-h1">Concluído</h1>
         <TodoList currentTheme={themes ? Themes.dark : Themes.light} list={list} setList={setList} todos={list.length !== 0 ? list.filter((element) => element.done === true)  : null} />
       </SectionDone>

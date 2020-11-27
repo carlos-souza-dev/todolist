@@ -20,7 +20,16 @@ export const SectionS = styled.article`
 `;
 
 export const SectionDone = styled(SectionS)`
-    display: ${({hide}) => `${hide ? "none" : "block"}`};
+    overflow: hidden;
+    height: ${({ heightValue }) => `${console.log("higt",heightValue)}`};
+    max-height: 5000px;
+    transition: max-height .5s ease-in-out;
+    
+    &.done-hide {
+        max-height: 0;
+        pointer-events: none;
+        transition: max-height .5s ease-in-out;
+    }
     
     div{
         color: grey;

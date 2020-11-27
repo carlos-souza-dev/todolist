@@ -145,7 +145,7 @@ export const ContentS = styled.div`
         font-weight: bold;
         z-index: 5;
         text-align: center;
-        color: ${({currentTheme}) => `${currentTheme.iconColor}`}; 
+        color: ${({currentTheme}) => `${currentTheme.iconColor}`};
 
         &:focus {
             border: none;
@@ -160,6 +160,8 @@ export const ContentS = styled.div`
 
     .timers-disabled {
         opacity: 0;
+        pointer-events: none;
+        transition: opacity linear .5s;
     }
 
 
