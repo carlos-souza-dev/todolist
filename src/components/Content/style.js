@@ -7,6 +7,46 @@ export const Container = styled.article`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+
+    &.editing {
+
+        #content, button {
+            color: ${({currentTheme}) => `${currentTheme.textDisabled}`};
+            box-shadow: -3px -3px 15px 0px ${({currentTheme}) => `${currentTheme.beginGradient}`}, 3px 3px 15px 0px ${({currentTheme}) => `${currentTheme.endGradient}`};
+            animation: transitionEditing 1s ease 0s infinite alternate none;
+            transition: box-shadow linear .5s;
+        }
+
+        #check, #trash, #content, #timer, p, i {
+            color: ${({currentTheme}) => `${currentTheme.textDisabled}`};
+        }
+    }
+    
+    @keyframes transitionEditing {
+        0%{
+
+            transform: translate(-20px, 0px);
+        }
+        15%{
+             transform: translate(-15px, 5px);
+        }
+        30%{
+            transform: translate(-10px, 0px);
+        }
+        45%{
+            transform: translate(-5px, -5px);
+        }
+        60%{
+             transform: translate(0px,0px);
+        }
+        75%{
+             transform: translate(5px, 5px);
+        }
+        100%{
+            transform: translate(10px, 0px);
+        }
+        
+    }
 `;
 
 
@@ -163,7 +203,6 @@ export const ContentS = styled.div`
         pointer-events: none;
         transition: opacity linear .5s;
     }
-
 
     @keyframes transform {
         0%{

@@ -6,6 +6,13 @@ import { Container, ContentS, CheckS, TrashS } from './style';
 
 const Content = ({ text, todo, list, setList, setEdit, currentTheme }) => {
 
+
+    const [ seconds, setSeconds ] = useState(0);
+    const [ time, setTimer ] = useState();
+    const [ toggle, setToggle ] = useState(false);
+    const [ order, setOrder ] = useState({up: false, down: false});
+    const [ doingList, setDoingList ] = useState([]);
+
     const deleteHandler = () => {
         setList(list.filter((element) => element.id !== todo.id));   
     };
@@ -26,17 +33,26 @@ const Content = ({ text, todo, list, setList, setEdit, currentTheme }) => {
     };
 
     const editHandler = () => {
-        setEdit([
-            {done: false, text: todo.text, id: todo.id}
-        ]);
-        setList(list.filter((element) => element.id !== todo.id));
-    };
+        setEdit([{done: false, text: todo.text, id: todo.id, edit: todo.edit}]);
 
-    const [ seconds, setSeconds ] = useState(0);
-    const [ time, setTimer ] = useState();
-    const [ toggle, setToggle ] = useState(false);
-    const [ order, setOrder ] = useState({up: false, down: false});
-    const [ doingList, setDoingList ] = useState([]);
+        setList(
+            list.map((element) => {
+                if(element.id === todo.id){
+                    return {
+                        ...element,  
+                        edit: true
+                    };
+                } else {
+                    return {
+                    ...element,  
+                        edit: false
+                    }
+                }
+                return element;
+            })
+        );
+    
+    };
 
     useEffect(() => {
         setDoingList(
@@ -136,9 +152,9 @@ const Content = ({ text, todo, list, setList, setEdit, currentTheme }) => {
 
     if(text){
         return (
-            <Container currentTheme={currentTheme}>
+            <Container className={todo.edit ? "editing" : ""} currentTheme={currentTheme}>
                 <CheckS currentTheme={currentTheme} onClick={completeHandler}><i className="material-icons" id="check">done</i></CheckS>
-                <ContentS order={order} id="content" time={time} currentTheme={currentTheme} background={parseFloat(((seconds * 100) / time).toFixed(0))}>
+                <ContentS order={order} id="content"  time={time} currentTheme={currentTheme} background={parseFloat(((seconds * 100) / time).toFixed(0))}>
                 <span onClick={toggleHandler}><i className="material-icons" id="timer">timer</i></span>    
                 <select name="timers" onChange={timerHandler} className={!toggle ? "timers-disabled" : ""} id="timers">
                     <option className="timer-option" value="">0</option>

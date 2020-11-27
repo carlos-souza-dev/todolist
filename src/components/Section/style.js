@@ -21,7 +21,7 @@ export const SectionS = styled.article`
 
 export const SectionDone = styled(SectionS)`
     overflow: hidden;
-    height: ${({ heightValue }) => `${console.log("higt",heightValue)}`};
+    height: ${({ heightValue }) => `${heightValue}px`};
     max-height: 5000px;
     transition: max-height .5s ease-in-out;
     

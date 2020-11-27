@@ -59,7 +59,6 @@ function App() {
     setHide(!hide);
   }
   
-  console.log(list.filter((element) => element.done === true).length)
   const height = list.filter((element) => element.done === true).length;
 
   return (

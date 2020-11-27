@@ -11,7 +11,7 @@ const Input = ({ list, setList, setInputText, inputText, edit, setEdit, currentT
 
     const inputHandler = (e) => {
         if( edit.length > 0 ) {
-            setEdit([{done: edit[0].done, text: e.target.value, id: edit[0].id}])
+            setEdit([{done: edit[0].done, text: e.target.value, id: edit[0].id, edit: false}])
         } else {
             setInputText(e.target.value);
         }
@@ -20,13 +20,23 @@ const Input = ({ list, setList, setInputText, inputText, edit, setEdit, currentT
     const submitHandler = (e) => {
         e.preventDefault();
         if(edit.length > 0){
-            setList([
-                ...list, {done: edit[0].done, text: edit[0].text, id: edit[0].id}
-            ])
+
+            setList(
+                list.map((element) => {
+                    if(element.id === edit[0].id){
+                        return {
+                            ...element, 
+                            text: edit[0].text, 
+                            edit: false
+                        };
+                    }
+                    return element;
+                })
+            );
         } 
         if(inputText){
             setList([
-                ...list, {done: false, text: inputText, id: list.length === undefined ? 0 : list.length}
+                ...list, {done: false, text: inputText, id: list.length === undefined ? 0 : list.length, edit: false}
             ])
         }
             setInputText('');

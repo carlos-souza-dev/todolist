@@ -31,4 +31,9 @@ export const InputS = styled.input`
     }
 `;
 
-export const InputEditS = styled(InputS)``;
+export const InputEditS = styled(InputS)`
+    box-shadow: 4px 4px 7px ${({currentTheme}) => `${currentTheme.shadowDark}`}, -4px -4px 7px ${({currentTheme}) => `${currentTheme.shadowLight}`},inset 8px 8px 5px ${({currentTheme}) => `${currentTheme.shadowDark}`}, inset -8px -8px 5px ${({currentTheme}) => `${currentTheme.shadowLight}`};
+    border: 5px solid ${({currentTheme}) => `${currentTheme.background}`};
+    outline: none;
+    background: yellow;
+`;
