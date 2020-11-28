@@ -15,6 +15,7 @@ export const Container = styled.article`
             box-shadow: -3px -3px 15px 0px ${({currentTheme}) => `${currentTheme.beginGradient}`}, 3px 3px 15px 0px ${({currentTheme}) => `${currentTheme.endGradient}`};
             animation: transitionEditing 1s ease 0s infinite alternate none;
             transition: box-shadow linear .5s;
+            pointer-events: none;
         }
 
         #check, #trash, #content, #timer, p, i {

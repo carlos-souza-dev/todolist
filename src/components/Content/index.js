@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 // Style
 import { Container, ContentS, CheckS, TrashS } from './style';
 
-const Content = ({ text, todo, list, setList, setEdit, currentTheme }) => {
+const Content = ({ text, todo, list, setList, setEdit, blocked, setBlocked, currentTheme }) => {
 
 
     const [ seconds, setSeconds ] = useState(0);
@@ -14,44 +14,47 @@ const Content = ({ text, todo, list, setList, setEdit, currentTheme }) => {
     const [ doingList, setDoingList ] = useState([]);
 
     const deleteHandler = () => {
-        setList(list.filter((element) => element.id !== todo.id));   
-    };
+        if(blocked === false){
+            setList(list.filter((element) => element.id !== todo.id));      
+        }
+    }
 
     const completeHandler = () => {
-
-        setList(
-            list.map((element) => {
-                if(element.id === todo.id){
-                    return {
-                        ...element, 
-                        done: !element.done,
-                    };
-                }
-                return element;
-            })
-        );
+        if(blocked === false){
+            setList(
+                list.map((element) => {
+                    if(element.id === todo.id){
+                        return {
+                            ...element, 
+                            done: !element.done,
+                        };
+                    }
+                    return element;
+                })
+            );
+        }
     };
 
     const editHandler = () => {
-        setEdit([{done: false, text: todo.text, id: todo.id, edit: todo.edit}]);
+            setEdit([{done: false, text: todo.text, id: todo.id, edit: todo.edit}]);
 
-        setList(
-            list.map((element) => {
-                if(element.id === todo.id){
-                    return {
+            setList(
+                list.map((element) => {
+                    if(element.id === todo.id){
+                        return {
+                            ...element,  
+                            edit: true
+                        };
+                    } else {
+                        return {
                         ...element,  
-                        edit: true
-                    };
-                } else {
-                    return {
-                    ...element,  
-                        edit: false
+                            edit: false
+                        }
                     }
-                }
-                return element;
-            })
-        );
-    
+                    return element;
+                })
+            );
+        setBlocked(true);
     };
 
     useEffect(() => {
@@ -60,7 +63,9 @@ const Content = ({ text, todo, list, setList, setEdit, currentTheme }) => {
                 return parseInt(a.id)  - parseInt(b.id);
             })
         )
-    },[list])
+
+        setOrder({up: false, down: false});
+    },[list, blocked])
 
     useEffect(() => {
         if(seconds === 3){
@@ -75,12 +80,14 @@ const Content = ({ text, todo, list, setList, setEdit, currentTheme }) => {
     }, [seconds, time]);
 
     const toggleHandler = () => {
-        setToggle(!toggle);
+        if(blocked === false){
+            setToggle(!toggle);
+        }
     };
 
     const timerHandler = (e) => {
-        setTimer(Number(e.target.value) * 60);
-        setSeconds(0);
+            setTimer(Number(e.target.value) * 60);
+            setSeconds(0);
     };
 
     const orderListUp = () => {
@@ -132,21 +139,26 @@ const Content = ({ text, todo, list, setList, setEdit, currentTheme }) => {
     };
     
     const toggleOrderEnabled = () => {
-        
-        if(doingList.length !== 1){
-            if(todo.id === doingList[doingList.length - doingList.length].id){
-                setOrder({up: false, down: true});
-            } else if (todo.id === doingList[doingList.length - 1].id){
-                setOrder({up: true, down: false});
-            } else {
-                setOrder({up: true, down: true});
+        if(blocked === false){
+            if(doingList.length !== 1){
+                if(todo.id === doingList[doingList.length - doingList.length].id){
+                    setOrder({up: false, down: true});
+                } else if (todo.id === doingList[doingList.length - 1].id){
+                    setOrder({up: true, down: false});
+                } else {
+                    setOrder({up: true, down: true});
+                }
             }
         }
     };
 
+    console.log("Blocked", blocked)
+
     const toggleOrderDisabled = () => {
-        if(order.up || order.down){
-            setOrder({up: false, down: false});
+        if(blocked === false){
+            if(order.up || order.down){
+                setOrder({up: false, down: false});
+            }
         }
     };
 

@@ -3,26 +3,29 @@ import React from 'react';
 // Style
 import { Container, DoneS, CheckS, TrashS } from './style';
 
-const Done = ({ text, todo, list, setList, currentTheme }) => {
+const Done = ({ text, todo, list, setList, blocked, currentTheme }) => {
 
     const deleteHandler = () => {
         setList(list.filter((element) => element.id !== todo.id));   
     };
 
     const completeHandler = () => {
-
-        setList(
-            list.map((element) => {
-                if(element.id === todo.id){
-                    return {
-                        ...element, 
-                        done: !element.done,
-                    };
-                }
-                return element;
-            })
-        )
+        if(blocked === false){
+            setList(
+                list.map((element) => {
+                    if(element.id === todo.id){
+                        return {
+                            ...element, 
+                            done: !element.done,
+                        };
+                    }
+                    return element;
+                })
+            )
+        }
     }
+
+    console.log("Done", blocked)
 
     {
         if(text){

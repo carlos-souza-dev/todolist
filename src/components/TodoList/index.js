@@ -8,7 +8,7 @@ import Done from '../Done'
 import { TodoListS } from './style';
 
 
-const TodoList = ({ todos, setList, list, setEdit, currentTheme }) => {
+const TodoList = ({ todos, setList, list, setEdit, blocked, setBlocked, currentTheme }) => {
 
     if(todos){
         todos.sort(function(a,b){
@@ -20,7 +20,9 @@ const TodoList = ({ todos, setList, list, setEdit, currentTheme }) => {
         <TodoListS currentTheme={currentTheme}>
             {todos ? todos.map(todo => (
                 todo.done === false ?
-                <Content 
+                <Content
+                    blocked={blocked}
+                    setBlocked={setBlocked} 
                     currentTheme={currentTheme}
                     key={todo.id} 
                     text={todo.text}
@@ -31,6 +33,7 @@ const TodoList = ({ todos, setList, list, setEdit, currentTheme }) => {
                     setEdit={setEdit}
                 /> : 
                 <Done 
+                    blocked={blocked} 
                     currentTheme={currentTheme}
                     key={todo.id} 
                     text={todo.text}

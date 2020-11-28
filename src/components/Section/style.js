@@ -23,18 +23,18 @@ export const SectionDone = styled(SectionS)`
     overflow: hidden;
     height: ${({ heightValue }) => `${heightValue}px`};
     max-height: 5000px;
-    transition: max-height .5s ease-in-out;
+    transition: max-height 1s ease-in-out .3s;
     
     &.done-hide {
         max-height: 0;
         pointer-events: none;
-        transition: max-height .5s ease-in-out;
+        transition: max-height 1s ease-in-out .3s;
     }
     
     div{
         color: grey;
         box-shadow: 3px 3px 2px${({currentTheme}) => `${currentTheme.shadowDark}`}, -3px -3px 2px ${({currentTheme}) => `${currentTheme.shadowLight}`};
-        animation: hide-content 1s ease;
+        animation: hide-content .5s ease;
         text-decoration: line-through;
     }
 
