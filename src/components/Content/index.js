@@ -1,4 +1,3 @@
-import { set } from 'date-fns';
 import React, { useState, useEffect } from 'react';
 
 // Style
@@ -51,7 +50,7 @@ const Content = ({ text, todo, list, setList, setEdit, blocked, setBlocked, curr
                             edit: false
                         }
                     }
-                    return element;
+                    // return element;
                 })
             );
         setBlocked(true);
