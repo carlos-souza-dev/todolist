@@ -25,8 +25,6 @@ const Done = ({ text, todo, list, setList, blocked, currentTheme }) => {
         }
     }
 
-    console.log("Done", blocked)
-
     {
         if(text){
             return (

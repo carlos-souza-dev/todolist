@@ -84,7 +84,7 @@ export const Container = styled.main`
     overflow: hidden;
 
     .btn-hide {
-        position: fixed;
+        position: absolute;
         height: 30px;
         width: auto;
         padding: 3px 24px;

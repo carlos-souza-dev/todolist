@@ -152,8 +152,6 @@ const Content = ({ text, todo, list, setList, setEdit, blocked, setBlocked, curr
         }
     };
 
-    console.log("Blocked", blocked)
-
     const toggleOrderDisabled = () => {
         if(blocked === false){
             if(order.up || order.down){

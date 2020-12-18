@@ -59,7 +59,7 @@ function App() {
   const hideHandler = () => {
     setHide(!hide);
   }
-  
+
   const height = list.filter((element) => element.done === true).length;
 
   return (

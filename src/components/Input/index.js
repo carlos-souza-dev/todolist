@@ -10,15 +10,21 @@ import Plus from '../Buttons/Plus';
 const Input = ({ list, setList, setInputText, inputText, edit, setEdit, setBlocked, currentTheme }) => {
 
     const inputHandler = (e) => {
-        if( edit.length > 0 ) {
-            setEdit([{done: edit[0].done, text: e.target.value, id: edit[0].id, edit: false}])
+
+        if(e.key === 'Enter'){
+            submitHandler(e);
         } else {
-            setInputText(e.target.value);
+            if( edit.length > 0 ) {
+                setEdit([{done: edit[0].done, text: e.target.value, id: edit[0].id, edit: false}])
+            } else {
+                setInputText(e.target.value);
+            }
         }
     };
     
     const submitHandler = (e) => {
         e.preventDefault();
+
         if(edit.length > 0){
 
             setList(
@@ -45,7 +51,7 @@ const Input = ({ list, setList, setInputText, inputText, edit, setEdit, setBlock
     } 
 
     return (
-        <InputContainer currentTheme={currentTheme}>
+        <InputContainer onKeyPressCapture={inputHandler} currentTheme={currentTheme}>
             <Plus currentTheme={currentTheme} submitHandler={submitHandler} />
             { edit.length > 0 ?
                 <InputEditS currentTheme={currentTheme} onChange={inputHandler} value={edit[0].text}   className="input-focus" type="text"/>
