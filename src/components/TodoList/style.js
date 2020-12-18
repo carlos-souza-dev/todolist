@@ -30,12 +30,3 @@ export const TodoListS = styled.article`
         }
     }
 `;
-
-export const Null = styled.div`
-    color: grey;
-    font-size: 24px;
-    font-family: sans-serif;
-    font-weight: 300;
-    line-height: 53.86px;
-    text-align: center;
-`;

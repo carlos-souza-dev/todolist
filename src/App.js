@@ -63,7 +63,7 @@ function App() {
   const height = list.filter((element) => element.done === true).length;
 
   return (
-    <Container hide={hide} currentTheme={themes ? Themes.dark : Themes.light}>
+    <Container heightValue={ !hide ? height === 0 ? "10" : height > 1 ? height * 100 : "130" : "10"} hide={hide} currentTheme={themes ? Themes.dark : Themes.light}>
       <Section currentTheme={themes ? Themes.dark : Themes.light}>
         <h1 className="title-h1" >To Do List</h1>
         <Bar arrayThemes={Themes} themes={themes} setThemes={setThemes} currentTheme={themes ? Themes.dark : Themes.light} list={list}/>

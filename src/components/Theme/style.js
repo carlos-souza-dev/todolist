@@ -13,6 +13,11 @@ export const ColorS = styled.div`
         background: linear-gradient(90deg, ${({currentTheme}) => `${currentTheme.beginGradient+" 0%,"+currentTheme.endGradient+" 100%"}`});
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
+
+        @media screen and (max-width: 768px){
+            font-size: 15px;
+            margin: 0px 0 2px 0;
+        }
     }
 
     .button {
@@ -23,6 +28,12 @@ export const ColorS = styled.div`
         border-radius: 30px;
         position: relative;
         cursor: pointer;
+
+        @media screen and (max-width: 768px){
+            width: 70%;
+            height: 20px;
+            margin: 0 auto;
+        }
 
         &:after {
             content: '';

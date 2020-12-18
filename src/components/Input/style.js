@@ -6,6 +6,10 @@ export const InputContainer = styled.article`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+
+    @media screen and (max-width: 768px){
+        width: 90%;
+    }
 `;
 
 export const InputS = styled.input`
@@ -23,6 +27,12 @@ export const InputS = styled.input`
     line-height: 53.86px;
     text-align: center;
     color: ${({currentTheme}) => `${currentTheme.textEnabled}`};
+
+    @media screen and (max-width: 768px){
+        width: 100%;
+        height: 45px;
+        font-size: 16px;
+    }
     
     &:focus {
             box-shadow: 4px 4px 7px ${({currentTheme}) => `${currentTheme.shadowDark}`}, -4px -4px 7px ${({currentTheme}) => `${currentTheme.shadowLight}`},inset 8px 8px 5px ${({currentTheme}) => `${currentTheme.shadowDark}`}, inset -8px -8px 5px ${({currentTheme}) => `${currentTheme.shadowLight}`};

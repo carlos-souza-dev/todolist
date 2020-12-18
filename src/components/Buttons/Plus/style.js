@@ -11,6 +11,11 @@ export const PlusS = styled.button`
     text-align: center;
     cursor: pointer;
 
+    @media screen and (max-width: 768px){
+        width: 45px;
+        height: 45px;
+    }
+
     &:hover {
         box-shadow: 3px 3px 2px ${({currentTheme}) => `${currentTheme.shadowDark}`}, -3px -3px 2px ${({currentTheme}) => `${currentTheme.shadowLight}`};
         transition: all linear 0.3s;
@@ -32,5 +37,11 @@ export const PlusS = styled.button`
         background: linear-gradient(90deg, ${({currentTheme}) => `${currentTheme.beginGradient}`} 0%, ${({currentTheme}) => `${currentTheme.endGradient}`} 100%);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
+
+        @media screen and (max-width: 768px){
+            font-size: 35px;
+            line-height: 45px;
+        }
+
     }
 `;

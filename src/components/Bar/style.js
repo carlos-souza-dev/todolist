@@ -9,10 +9,14 @@ export const ContainerBar = styled.div`
 
     .percent {
         color: ${({currentTheme}) => `${currentTheme.textEnabled}`};
-        font-size: 40px;
+        font-size: calc( 1.5rem + (8/1200) * 100 * 1.5vw);
         font-weight: 500;
         position: absolute;
         right: 5%;
+
+        @media screen and (max-width: 768px){
+            display: none;
+        }
     }
 `;
 
@@ -23,6 +27,11 @@ export const BarS = styled.div`
     background: ${({currentTheme}) => `${currentTheme.background}`};
     box-shadow: 4px 4px 7px ${({currentTheme}) => `${currentTheme.shadowDark}`}, -4px -4px 7px ${({currentTheme}) => `${currentTheme.shadowLight}`};
     border-radius: 30px;
+
+    @media screen and (max-width: 768px){
+        width: 90%;
+        height: 20px;
+    }
 
     &:after {
         z-index: 3;

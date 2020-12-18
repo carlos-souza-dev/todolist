@@ -1,16 +1,21 @@
 import styled from 'styled-components';
 
 export const Container = styled.article`
-    width: 60%;
+    width: 70%;
     margin: 20px auto;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+
+    @media screen and (max-width: 768px){
+        width: 90%;
+    }
 `;
 
 
 export const DoneS = styled.div`
-    width: 500.52px;
+    width: 100%;
+    max-width: 500px;
     height: 53.86px;
     background: ${({currentTheme}) => `${currentTheme.background}`};
     box-shadow: 3px 3px 2px ${({currentTheme}) => `${currentTheme.shadowDark}`}, -3px -3px 2px ${({currentTheme}) => `${currentTheme.shadowLight}`};
@@ -20,6 +25,12 @@ export const DoneS = styled.div`
     font-weight: 300;
     line-height: 53.86px;
     text-align: center;
+
+    @media screen and (max-width: 768px){
+        height: 40px;
+        font-size: 15px;
+        line-height: 40px;
+    }
 `;
 
 export const CheckS = styled.button`
@@ -31,6 +42,11 @@ export const CheckS = styled.button`
     box-shadow: 3px 3px 2px ${({currentTheme}) => `${currentTheme.shadowDark}`}, -3px -3px 2px ${({currentTheme}) => `${currentTheme.shadowLight}`};
     border-radius: 10px;
     text-align: center;
+
+    @media screen and (max-width: 768px){
+        height: 40px;
+        width:  40px;
+    }
 
     &:hover #return {
         color: ${({currentTheme}) => `${currentTheme.check}`};
@@ -50,6 +66,11 @@ export const CheckS = styled.button`
         color: ${({currentTheme}) => `${currentTheme.textDisabled}`};
         font-size: 30px;
         line-height: 53.86px; 
+
+        @media screen and (max-width: 768px){
+            font-size: 20px;
+            line-height: 40px;
+        }
     }
 `;
 
@@ -74,5 +95,10 @@ export const TrashS = styled(CheckS)`
         color: ${({currentTheme}) => `${currentTheme.textDisabled}`};
         font-size: 30px;
         line-height: 53.86px; 
+
+        @media screen and (max-width: 768px){
+            font-size: 20px;
+            line-height: 40px;
+        }
     }
 `;

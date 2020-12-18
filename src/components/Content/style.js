@@ -8,6 +8,10 @@ export const Container = styled.article`
     align-items: center;
     justify-content: space-evenly;
 
+    @media screen and (max-width: 768px) {
+        width: 90%;
+    }
+
     &.editing {
 
         #content, button {
@@ -68,6 +72,11 @@ export const ContentS = styled.div`
     text-align: center;
     transition: shadow linear 1s;
 
+    @media screen and (max-width: 768px){
+        height: 40px;
+        font-size: 15px;
+    }
+
     &:after {
         content: "";
         width: ${({background}) => `${background}%`};
@@ -100,6 +109,10 @@ export const ContentS = styled.div`
         transform: translateY(-50%);
         color: ${({currentTheme}) => `${currentTheme.iconColor}`}; 
         transition: opacity linear 0.4s;
+     
+        @media screen and (max-width: 768px){
+            right: 45px;
+        }
     }
 
     .fa-times {
@@ -111,6 +124,10 @@ export const ContentS = styled.div`
         transform: translate(18%, -50%);
         color: ${({currentTheme}) => `${currentTheme.trash}`};
         transition: opacity linear 0.4s; 
+
+        @media screen and (max-width: 768px){
+            right: 45px;
+        }
     }  
 
     .fa-sort-up {
@@ -131,6 +148,11 @@ export const ContentS = styled.div`
         font-size: 34px;
         transform: translateY(-28px);
         transition: all linear 0.4s;
+
+        @media screen and (max-width: 768px){
+            font-size: 30px;
+            transform: translate(-22px, -25px);
+        }
     }
 
     .fa-sort-down {
@@ -144,6 +166,10 @@ export const ContentS = styled.div`
         transition: color linear .2s;
         transition: transform linear .2s;
         transition: opacity linear 0.4s;
+
+        @media screen and (max-width: 768px){
+            font-size: 16px;
+        }
     }  
 
     .down-active {
@@ -151,6 +177,11 @@ export const ContentS = styled.div`
         font-size: 34px;
         transform: translateY(35px);
         transition: all linear 0.4s;
+
+        @media screen and (max-width: 768px){
+            font-size: 30px;
+            transform: translate(-22px, 35px);
+        }
     }
 
     .fa-edit {
@@ -171,6 +202,10 @@ export const ContentS = styled.div`
         transform: translateY(-50%);
         cursor: pointer;
         color: ${({currentTheme, time}) => `${time > 0 ? currentTheme.check : currentTheme.iconColor}`}; 
+
+        @media screen and (max-width: 768px){
+            font-size: 18px;
+        }
     }
 
     #timers {
@@ -187,6 +222,12 @@ export const ContentS = styled.div`
         z-index: 5;
         text-align: center;
         color: ${({currentTheme}) => `${currentTheme.iconColor}`};
+        background-color: ${({currentTheme}) => `${currentTheme.background}`};
+
+        @media screen and (max-width: 768px){
+            left: 45px;
+            padding: 3px 6px;
+        }
 
         &:focus {
             border: none;
@@ -226,6 +267,11 @@ export const CheckS = styled.button`
     text-align: center;
     cursor: pointer;
 
+    @media screen and (max-width: 768px){
+        height: 40px;
+        width:  40px;
+    }
+
     &:hover {
         box-shadow: 3px 3px 2px ${({currentTheme}) => `${currentTheme.shadowDark}`}, -3px -3px 2px ${({currentTheme}) => `${currentTheme.shadowLight}`};
         transition: all linear 0.3s;
@@ -244,6 +290,11 @@ export const CheckS = styled.button`
         color: ${({currentTheme}) => `${currentTheme.check}`};
         font-size: 32px;
         line-height: 53.86px; 
+
+        @media screen and (max-width: 768px){
+            font-size: 20px;
+            line-height: 40px;
+        }
     }
 `;
 
@@ -268,5 +319,10 @@ export const TrashS = styled(CheckS)`
         color: ${({currentTheme}) => `${currentTheme.trash}`};
         font-size: 32px;
         line-height: 53.86px; 
+
+        @media screen and (max-width: 768px){
+            font-size: 20px;
+            line-height: 40px;
+        }
     }
 `;
